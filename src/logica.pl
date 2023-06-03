@@ -1,9 +1,5 @@
-hola(juan, maria).
-hola(juana, maria1).
-hola(juanb, maria2).
-hola(juanc, maria3).
-hola(juand, maria4).
-hola(juane, maria5).
-hola(juanf, maria6).
-hola(juang, maria7).
-hola(juanh, maria8).
+dormir(1, Mala).
+dormir(6, Media).
+dormir(8, Buena).
+dormir(12, Media).
+dormir(16, Mala).

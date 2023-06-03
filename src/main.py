@@ -15,4 +15,7 @@
 
 from pyswip import Prolog
 c = Prolog()
-c.assertz("father(michael,john)")
+c.consult("src/logica.pl")
+
+
+
