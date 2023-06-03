@@ -1,0 +1,9 @@
+hola(juan, maria).
+hola(juana, maria1).
+hola(juanb, maria2).
+hola(juanc, maria3).
+hola(juand, maria4).
+hola(juane, maria5).
+hola(juanf, maria6).
+hola(juang, maria7).
+hola(juanh, maria8).
