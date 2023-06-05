@@ -30,15 +30,26 @@ def estado_salud(num, prolog):
         return -1
 
 def main():
-    # Crear instancia de Prolog
+    # Crea una instancia de Prolog
     prolog = Prolog()
 
-    # Cargar archivo Prolog
+    # Carga el archivo consultas.pl
     prolog.consult("src/consultas.pl")
 
     # Realizar consultas
     entrada = input("Inserte sus horas: ")
-    entrada2 = input()
-    print("Su estado de salud es: ", bool(list(prolog.query("menor_max_"+str(entrada2)+"("+str(entrada)+")"))))
+    entrada2 = input("Inserte su edad: ")
+    consulta2 = "edad("+str(entrada2)+",Edad)"
+    soluciones = list(prolog.query(consulta2))
+    edad = soluciones[0]['Edad']
+    consulta = "estado_screen_time(" + str(edad) + "," + str(entrada) + ", Z)"
+    # Consultar y obtener el valor de retorno
+    soluciones = list(prolog.query(consulta))
+    if soluciones:
+        Z = soluciones[0]['Z']
+        print("El valor de Z es:", Z)
+    else:
+        print("No se encontró una solución para la consulta.")
+    
 if __name__ == "__main__":
     main()
