@@ -14,8 +14,32 @@
 #- Mora F. (2021) NEUROEDUCACIÓN. ALIANZA EDITORIAL
 
 from pyswip import Prolog
-c = Prolog()
-c.consult("src/logica.pl")
 
+def estado_salud(Num, prolog):
+    print(Num)
+    if(bool(list(prolog.query("saludable("+str(Num)+")")))):
+        # 0 = saludable
+        return 0
+    elif(bool(list(prolog.query("poco_saludable("+str(Num)+")")))):
+        # 1 = poco saludable
+        return 1
+    elif(bool(list(prolog.query("no_saludable("+str(Num)+")")))):
+        # 2 = no saludable
+        return 2
+    else:
+        # fuera de rango
+        return -1
 
+def main():
+    # Crear instancia de Prolog
+    prolog = Prolog()
 
+    # Cargar archivo Prolog
+    prolog.consult("src/consultas.pl")
+
+    # Realizar consultas
+    entrada = input("Inserte su estado de salud (0-100): ")
+    print("Su estado de salud es: ", estado_salud(entrada, prolog))
+
+if __name__ == "__main__":
+    main()
