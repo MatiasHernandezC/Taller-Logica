@@ -108,8 +108,7 @@ consumo_estupefacientes([H1|T1], [H2|T2], Z) :-
 % 0 a 2 año: 0 de actividad física de intensidad moderada a vigorosa
 % 2 a 4 años: 60 minutos son de actividad física de intensidad moderada a vigorosa repartidas en el dia
 % 5 y 17 años: 60 minutos de actividad física de intensidad moderada a vigorosa diariamente.
-% 
-% 
+
 actividad_fisica(bebe, poco, 2).
 actividad_fisica(bebe, normal, 1).
 actividad_fisica(bebe, mucho, 2).

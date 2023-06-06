@@ -1,12 +1,6 @@
 # Taller-Logica
 Texto a utilizar:
   - https://www.ses.unam.mx/docencia/2018I/Carr2011_Superficiales.pdf
-Instalacion de pyswipl:
-  - Instalar ultima version estable de Python compatible con el pc
-  - Instalar ultima version estable de SWI-Prolog compatible con el pc
-  - Instalar pip3 para poder instalar la libreria de prolog en python
-  - Insertar en CMD: "pip3 install pyswipl"
-Con lo anterior ya se podria correr el programa
 
 Links logica de prolog:
   Screen time:
@@ -20,6 +14,12 @@ Links logica de prolog:
   - https://www.unicef.org/uruguay/media/2276/file/La%20actividad%20f%C3%ADsica%20en%20ni%C3%B1os,%20ni%C3%B1as%20y%20adolescentes.pdf
 
 ### INSTRUCCIONES PROGRAMA ###
+- Ejecutar con sistema operativo linux
+- Instalacion de pyswipl:
+    - Instalar ultima version estable de Python compatible con el so
+    - Instalar ultima version estable de SWI-Prolog compatible con el so
+    - Instalar pip3 para poder instalar la libreria de prolog en python
+    - Insertar en CMD: "pip3 install pyswipl"
 - Entrar a la carpeta src.
 - Abrir el archivo main.pyw, o ejecutar con el intérpete de Python.
 De esta manera, comienza el hilo de ejecución para responder el test de salud mental.

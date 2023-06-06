@@ -54,8 +54,8 @@ miTitulo.grid(row=0, column=0, pady=10, padx=25)
 
 Radiobutton(frame, text="Nada", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=0).grid(row=1, column=0, pady = 10, padx = 25)
 Radiobutton(frame, text="Poco", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=1).grid(row=2, column=0, pady = 10, padx = 25)
-Radiobutton(frame, text="Mucho", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=2).grid(row=3, column=0, pady = 10, padx = 25)
-Radiobutton(frame, text="Demasiado", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=3).grid(row=4, column=0, pady = 10, padx = 25)
+Radiobutton(frame, text="Muchas", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=2).grid(row=3, column=0, pady = 10, padx = 25)
+Radiobutton(frame, text="Demasiadas", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaDrogas, value=3).grid(row=4, column=0, pady = 10, padx = 25)
 
 ## Botón Siguiente
 botonAbrir = Button(frame, text="Siguiente", font=("Comic Sans MS", 14), bg="SpringGreen2", relief=GROOVE, command=settearD)
