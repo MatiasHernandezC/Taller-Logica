@@ -20,6 +20,7 @@ horasSueno = -1
 screenTime = -1
 edad = -1
 listaEstupefacientes = []
+actividadFisica = ""
 
 ### FIN VARIABLES GLOBALES ###
 
