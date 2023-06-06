@@ -117,6 +117,24 @@ def saludable_actividad_fisica(entrada, entrada2, prolog):
     else:
         return 0
 
+def calcularEstandarVida():
+    # Crea una instancia de Prolog
+    prolog = Prolog()
+
+    # Carga el archivo consultas.pl
+    prolog.consult("src/consultas.pl")
+
+    # Consultamos
+    z1 = saludable_edad_screentime(screenTime, edad, prolog)
+    z2 = saludable_edad_hrs_sueno(horasSueno, edad, prolog)
+    z3 = saludable_consumo_estupefacientes(listaEstupefacientes, prolog)
+    z4 = saludable_actividad_fisica(actividadFisica, edad, prolog)
+    prom = (z1 + z2 + z3 + z4)/4
+
+    return prom
+
+
+
 def main():
     # Crea una instancia de Prolog
     prolog = Prolog()
@@ -141,6 +159,6 @@ def main():
     print("Hrs sueño: "+str(z2))
     print("Consumo estupefacientes: "+str(z3))
     print("Actividad fisica: "+str(z4))
-    print("Promedio: " + str((z1 + z2+ z3+ z4)/4))
+    print("Promedio: " + str((z1 + z2 + z3 + z4)/4))
 if __name__ == "__main__":
     main()
