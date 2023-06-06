@@ -17,28 +17,23 @@ from pyswip import Prolog
 
 def estado_salud(num, prolog):
     if(bool(list(prolog.query("saludable("+str(num)+")")))):
-        # 0 = saludable
-        return 0
-    elif(bool(list(prolog.query("poco_saludable("+str(num)+")")))):
-        # 1 = poco saludable
+        # 1 = saludable
         return 1
-    elif(bool(list(prolog.query("no_saludable("+str(num)+")")))):
-        # 2 = no saludable
+    elif(bool(list(prolog.query("poco_saludable("+str(num)+")")))):
+        # 2 = poco saludable
         return 2
+    elif(bool(list(prolog.query("no_saludable("+str(num)+")")))):
+        # 3 = no saludable
+        return 3
     else:
         # fuera de rango
-        return -1
+        return 0
 
-def main():
-    # Crea una instancia de Prolog
-    prolog = Prolog()
-
-    # Carga el archivo consultas.pl
-    prolog.consult("src/consultas.pl")
-
+# Entradas:
+# Salida:   
+# Objetivo: 
+def saludable_edad_screentime(entrada, entrada2, prolog):
     # Realizar consultas
-    entrada = input("Inserte sus horas: ")
-    entrada2 = input("Inserte su edad: ")
     consulta2 = "edad("+str(entrada2)+",Edad)"
     soluciones = list(prolog.query(consulta2))
     edad = soluciones[0]['Edad']
@@ -47,9 +42,35 @@ def main():
     soluciones = list(prolog.query(consulta))
     if soluciones:
         Z = soluciones[0]['Z']
-        print("El valor de Z es:", Z)
+        return Z
     else:
-        print("No se encontró una solución para la consulta.")
-    
+        return 0
+
+# Entradas:
+# Salida:   
+# Objetivo: 
+def saludable_edad_hrs_sueno(entrada, entrada2, prolog):
+    # Realizar consultas
+    consulta2 = "edad("+str(entrada2)+",Edad)"
+    soluciones = list(prolog.query(consulta2))
+    edad = soluciones[0]['Edad']
+    consulta = "estado_horas_sueño(" + str(edad) + "," + str(entrada) + ", Z)"
+    # Consultar y obtener el valor de retorno
+    soluciones = list(prolog.query(consulta))
+    if soluciones:
+        Z = soluciones[0]['Z']
+        return Z
+    else:
+        return 0
+
+def main():
+    # Crea una instancia de Prolog
+    prolog = Prolog()
+
+    # Carga el archivo consultas.pl
+    prolog.consult("src/consultas.pl")
+    entrada = input("Inserte sus horas: ")
+    entrada2 = input("Inserte su edad: ")
+    saludable_edad_hrs_sueno(entrada, entrada2, prolog)
 if __name__ == "__main__":
     main()
