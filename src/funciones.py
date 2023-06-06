@@ -125,10 +125,15 @@ def calcularEstandarVida(edad, horasSueno, screenTime, listaEstupefacientes, act
     prolog.consult("src/consultas.pl")
 
     # Consultamos
+
     z1 = saludable_edad_screentime(screenTime, edad, prolog)
     z2 = saludable_edad_hrs_sueno(horasSueno, edad, prolog)
     z3 = saludable_consumo_estupefacientes(listaEstupefacientes, prolog)
     z4 = saludable_actividad_fisica(actividadFisica, edad, prolog)
     prom = (z1 + z2 + z3 + z4)/4
-
+    print(z1)
+    print(z2)
+    print(z3)
+    print(z4)
+    print(prom)
     return prom

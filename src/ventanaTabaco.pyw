@@ -28,7 +28,7 @@ def abrirVentanaDroga():
     ruta_ventana = os.path.join(os.path.dirname(__file__), "ventanaDroga.pyw")
     
     # Abrir la nueva ventana
-    os.system("pythonw " + ruta_ventana)
+    os.system("python3 " + ruta_ventana)
 
 ### INTERFACE ###
 
