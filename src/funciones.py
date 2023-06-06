@@ -15,6 +15,13 @@
 
 from pyswip import Prolog
 
+### VARIABLES GLOBALES ###
+horasSueno = -1
+screenTime = -1
+edad = -1
+
+### FIN VARIABLES GLOBALES ###
+
 # Entradas: entrada = hrs que esta frente a una pantalla, entrada2 = edad, consultas prolog
 # Salida:   Int Nivel de saludable (1: saludable, 2: poco saludable, 3 o mas: no saludable)
 # Objetivo: Obtener que tan saludable esta tu cerebro por tus horas de sueño y tu edad
