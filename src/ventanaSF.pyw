@@ -10,8 +10,8 @@ def settearSF():
         varString = "normal"
     elif opcion == 2:
         varString = "mucho"
-    f.listaEstupefacientes.append(varString)
-    abrirVentanaResultados() 
+    f.actividadFisica = varString
+    abrirVentanaResultados()    
     
 
 def abrirVentanaResultados():
