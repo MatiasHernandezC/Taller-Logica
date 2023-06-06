@@ -2,26 +2,25 @@ import funciones as f
 from tkinter import *
 import os
 
-def settearST():
-    try:
-        numeroPassing = int(numeroST.get())
-        if numeroPassing < 0 or numeroPassing > 24:
-            mensaje = Message(raiz, text = "Por favor, ingrese una edad válida entre 0 y 24")
-            mensaje.pack()
-        else:
-            f.screenTime = numeroPassing
-            abrirVentanaAlcohol()
-    except ValueError:
-        # Manejar la excepción
-        mensaje_e = Message(raiz, text = "Por favor, ingrese una edad válida entre 0 y 24")
-        mensaje_e.pack()
+def settearA():
+    opcion = frecuenciaAlcohol.get()
+    if opcion == 0:
+        varString = "nada"
+    elif opcion == 1:
+        varString = "poco"
+    elif opcion == 2:
+        varString = "mucho"
+    elif opcion == 3:
+        varString = "demasiado"
+    f.listaEstupefacientes.append(varString)
+    abrirVentanaTabaco()
     
 
-def abrirVentanaAlcohol():
+def abrirVentanaTabaco():
     raiz.destroy()
     
     # Obtener la ruta absoluta del archivo de la nueva ventana
-    ruta_ventana = os.path.join(os.path.dirname(__file__), "ventanaAlcohol.pyw")
+    ruta_ventana = os.path.join(os.path.dirname(__file__), "ventanaTabaco.pyw")
     
     # Abrir la nueva ventana
     os.system("pythonw " + ruta_ventana)
@@ -42,15 +41,19 @@ frame.config(bd=35)
 frame.config(relief="groove")
 
 frecuenciaAlcohol = IntVar()
+frecuenciaAlcohol.set(-1)
 
 ## Pregunta horas de sueño
-miTitulo = Label(frame, text="¿Cuánto alcohol consumes?:", bg="deep sky blue", font=("Comic Sans MS", 15))
+miTitulo = Label(frame, text="¿Cuánto alcohol consumes?", bg="deep sky blue", font=("Comic Sans MS", 18))
 miTitulo.grid(row=0, column=0, pady=10, padx=25)
 
-Radiobutton(frame, text="Mucho alcohol", variable=frecuenciaAlcohol, )
+Radiobutton(frame, text="Nada", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaAlcohol, value=0).grid(row=1, column=0, pady = 10, padx = 25)
+Radiobutton(frame, text="Poco", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaAlcohol, value=1).grid(row=2, column=0, pady = 10, padx = 25)
+Radiobutton(frame, text="Mucho", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaAlcohol, value=2).grid(row=3, column=0, pady = 10, padx = 25)
+Radiobutton(frame, text="Demasiado", bg="deep sky blue", font=("Comic Sans MS", 15), variable=frecuenciaAlcohol, value=3).grid(row=4, column=0, pady = 10, padx = 25)
 
 ## Botón Siguiente
-botonAbrir = Button(frame, text="Siguiente", font=("Comic Sans MS", 14), bg="SpringGreen2", relief=GROOVE, command=settearST)
-botonAbrir.grid(row=1, column=0, pady=10, padx=25)
+botonAbrir = Button(frame, text="Siguiente", font=("Comic Sans MS", 14), bg="SpringGreen2", relief=GROOVE, command=settearA)
+botonAbrir.grid(row=5, column=0, pady=20, padx=25)
 
 raiz.mainloop()

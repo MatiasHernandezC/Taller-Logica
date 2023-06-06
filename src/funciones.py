@@ -19,6 +19,7 @@ from pyswip import Prolog
 horasSueno = -1
 screenTime = -1
 edad = -1
+listaEstupefacientes = []
 
 ### FIN VARIABLES GLOBALES ###
 
