@@ -30,13 +30,13 @@ def abrirVentanaResultados():
 raiz = Tk()
 raiz.resizable(0,0)
 raiz.title("Test de Salud Mental")
-raiz.geometry("800x600")
+raiz.geometry("600x400")
 
 ## Frame interno
 frame = Frame(raiz)
 frame.pack(fill="both", expand="True")
 frame.config(bg="deep sky blue")
-frame.config(width="800", height="600")
+frame.config(width="600", height="400")
 frame.config(bd=35)
 frame.config(relief="groove")
 
@@ -53,6 +53,6 @@ Radiobutton(frame, text="Mucho", bg="deep sky blue", font=("Comic Sans MS", 15),
 
 ## Botón Siguiente
 botonAbrir = Button(frame, text="Ver resultados", font=("Comic Sans MS", 14), bg="SpringGreen2", relief=GROOVE, command=settearSF)
-botonAbrir.grid(row=5, column=0, pady=20, padx=25)
+botonAbrir.grid(row=4, column=0, pady=20, padx=25)
 
 raiz.mainloop()
