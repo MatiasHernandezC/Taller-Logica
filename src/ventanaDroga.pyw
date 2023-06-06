@@ -12,13 +12,13 @@ def settearD():
         varString = "mucho"
     elif opcion == 3:
         varString = "demasiado"
-    with open("lista.pickle", "wb") as archivoLista:
+    with open("lista.pickle", "rb") as archivoLista:
         lista_cargada = pickle.load(archivoLista)
     cadena = varString
     lista_cargada.append(cadena)
     with open("lista.pickle", "wb") as archivoLista:
         pickle.dump(lista_cargada, archivoLista)
-    abrirVentanaSF() 
+    abrirVentanaSF()
     
 
 def abrirVentanaSF():
