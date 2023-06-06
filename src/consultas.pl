@@ -88,11 +88,11 @@ consume(mucho, drogas, 2).
 consume(demaciado, drogas, 2).
 
 % Saludable
-consumo_estupefacientes([], [], 1).
+consumo_estupefacientes([], [], 0).
 consumo_estupefacientes([H1|T1], [H2|T2], Z) :-
-    Z = Z + Cont,
     consume(H1, H2, Cont),
-    consumo_estupefacientes(T1, T2, Z).
+    consumo_estupefacientes(T1, T2, Z1),
+    Z = Z1+Cont.
 
 % Asumir que:
 %   - 0 - 33: Saludable

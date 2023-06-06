@@ -29,9 +29,9 @@ def estado_salud(num, prolog):
         # fuera de rango
         return 0
 
-# Entradas:
-# Salida:   
-# Objetivo: 
+# Entradas: entrada = hrs que esta frente a una pantalla, entrada2 = edad, consultas prolog
+# Salida:   Int Nivel de saludable (1: saludable, 2: poco saludable, 3 o mas: no saludable)
+# Objetivo: Obtener que tan saludable esta tu cerebro por tus horas de sueño y tu edad
 def saludable_edad_screentime(entrada, entrada2, prolog):
     # Realizar consultas
     consulta2 = "edad("+str(entrada2)+",Edad)"
@@ -46,9 +46,9 @@ def saludable_edad_screentime(entrada, entrada2, prolog):
     else:
         return 0
 
-# Entradas:
-# Salida:   
-# Objetivo: 
+# Entradas: entrada = hrs que duerme, entrada2 = edad, consultas prolog
+# Salida:   Int Nivel de saludable (1: saludable, 2: poco saludable, 3 o mas: no saludable)
+# Objetivo: Obtener que tan saludable esta tu cerebro por tus horas de sueño y tu edad
 def saludable_edad_hrs_sueno(entrada, entrada2, prolog):
     # Realizar consultas
     consulta2 = "edad("+str(entrada2)+",Edad)"
@@ -63,6 +63,50 @@ def saludable_edad_hrs_sueno(entrada, entrada2, prolog):
     else:
         return 0
 
+# Entradas: Lista cant consumo con orden [alcohol,tabaco,drogas], consultas prolog
+# Salida:   Int Nivel de saludable (1: saludable, 2: poco saludable, 3 o mas: no saludable)
+# Objetivo: Obtener que tan saludable esta tu cerebro por tu consumo de drogas
+def saludable_consumo_estupefacientes(entrada, prolog):
+    # Realizar consultas
+    consultaLista = "consume(_, X, _)"
+    listaDrogas = list(prolog.query(consultaLista))
+    listaAux = []
+    for x in listaDrogas:
+        listaAux.append(x['X'])
+    unique_aux= []
+    for x in listaAux:
+        if x not in unique_aux:
+            unique_aux.append(x)
+    consulta = "consumo_estupefacientes(["
+    i=0
+    for x in entrada:
+        if(i != 2):
+            consulta = consulta + str(x) + ","
+        else:
+            consulta = consulta + str(x)
+        i=i+1
+    consulta = consulta + "],["
+    i=0
+    for x in unique_aux:
+        if(i != 2):
+            consulta = consulta + str(x) + ","
+        else:
+            consulta = consulta + str(x)
+        i=i+1
+    consulta = consulta + "],Z)"
+    print(consulta)
+    soluciones = list(prolog.query(consulta))
+    if soluciones:
+        Z = soluciones[0]['Z']
+        cont = 0
+        for x in Z:
+            if(x == '0' or x == '1' or x == '2' or x == '3'):
+                cont = cont + int(x)
+        return Z
+    else:
+        return 0
+
+
 def main():
     # Crea una instancia de Prolog
     prolog = Prolog()
@@ -71,6 +115,6 @@ def main():
     prolog.consult("src/consultas.pl")
     entrada = input("Inserte sus horas: ")
     entrada2 = input("Inserte su edad: ")
-    saludable_edad_hrs_sueno(entrada, entrada2, prolog)
+    saludable_consumo_estupefacientes(["demaciado", "demaciado", "demaciado"], prolog)
 if __name__ == "__main__":
     main()
