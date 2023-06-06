@@ -72,20 +72,28 @@ estado_horas_sueño(X, Y, Z) :-
     Z = 3.
 
 % Drogas y alcohol
-consume(nada, alcohol, -1).
+consume(nada, alcohol, 0).
 consume(poco, alcohol, 0).
 consume(mucho, alcohol, 1).
-consume(demaciado, alcohol, 2).
+consume(demaciado, alcohol, 3).
 
-consume(nada, tabaco, -1).
-consume(poco, tabaco, 0).
-consume(mucho, tabaco, 1).
+consume(nada, tabaco, 0).
+consume(poco, tabaco, 1).
+consume(mucho, tabaco, 2).
 consume(demaciado, tabaco, 2).
 
-consume(nada, drogas, 1).
-consume(poco, drogas, 2).
+consume(nada, drogas, 0).
+consume(poco, drogas, 1).
 consume(mucho, drogas, 2).
-consume(demaciado, drogas, 3).
+consume(demaciado, drogas, 2).
+
+% Saludable
+consumo_estupefacientes([], [], 1).
+consumo_estupefacientes([H1|T1], [H2|T2], Z) :-
+    Z = Z + Cont,
+    consume(H1, H2, Cont),
+    consumo_estupefacientes(T1, T2, Z).
+
 % Asumir que:
 %   - 0 - 33: Saludable
 %   - 34 - 66: Poco saludable
