@@ -16,11 +16,11 @@
 from pyswip import Prolog
 
 ### VARIABLES GLOBALES ###
-horasSueno = -1
+""" horasSueno = -1
 screenTime = -1
 edad = -1
 listaEstupefacientes = []
-actividadFisica = ""
+actividadFisica = "" """
 
 ### FIN VARIABLES GLOBALES ###
 
@@ -117,7 +117,7 @@ def saludable_actividad_fisica(entrada, entrada2, prolog):
     else:
         return 0
 
-def calcularEstandarVida():
+def calcularEstandarVida(edad, horasSueno, screenTime, listaEstupefacientes, actividadFisica):
     # Crea una instancia de Prolog
     prolog = Prolog()
 
@@ -132,33 +132,3 @@ def calcularEstandarVida():
     prom = (z1 + z2 + z3 + z4)/4
 
     return prom
-
-
-
-def main():
-    # Crea una instancia de Prolog
-    prolog = Prolog()
-
-    # Carga el archivo consultas.pl
-    prolog.consult("src/consultas.pl")
-
-    edad = input("Inserte su edad: ")
-    horas_frente_pantalla = input("Inserte cant de horas frente a pantalla: ")
-    horas_sueño = input("Inserte cant de horas que duerme: ")
-    consumo_estupefacientes1 = input("Inserte cant de consumo de [alcohol,tabaco,drogas], ej=poco, mucho, demasiado: ")
-    consumo_estupefacientes2 = input()
-    consumo_estupefacientes3 = input()
-    actividad_fisica = input("Inserte cant de actividad fisica (poco, normal, mucho): ")
-    
-    consumo_estupefacientes = [consumo_estupefacientes1, consumo_estupefacientes2, consumo_estupefacientes3]
-    z1 = saludable_edad_screentime(horas_frente_pantalla, edad, prolog)
-    z2 = saludable_edad_hrs_sueno(horas_sueño, edad, prolog)
-    z3 = saludable_consumo_estupefacientes(consumo_estupefacientes, prolog)
-    z4 = saludable_actividad_fisica(actividad_fisica, edad, prolog)
-    print("ScreenTime: "+str(z1))
-    print("Hrs sueño: "+str(z2))
-    print("Consumo estupefacientes: "+str(z3))
-    print("Actividad fisica: "+str(z4))
-    print("Promedio: " + str((z1 + z2 + z3 + z4)/4))
-if __name__ == "__main__":
-    main()

@@ -1,6 +1,6 @@
-import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def settearT():
     opcion = frecuenciaTabaco.get()
@@ -12,7 +12,12 @@ def settearT():
         varString = "mucho"
     elif opcion == 3:
         varString = "demasiado"
-    f.listaEstupefacientes.append(varString)
+    with open("lista.pickle", "wb") as archivoLista:
+        lista_cargada = pickle.load(archivoLista)
+    cadena = varString
+    lista_cargada.append(cadena)
+    with open("lista.pickle", "wb") as archivoLista:
+        pickle.dump(lista_cargada, archivoLista)
     abrirVentanaDroga()
     
 

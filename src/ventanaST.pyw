@@ -1,6 +1,6 @@
-import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def settearST():
     try:
@@ -9,7 +9,9 @@ def settearST():
             mensaje = Message(raiz, text = "Por favor, ingrese una edad válida entre 0 y 24")
             mensaje.pack()
         else:
-            f.screenTime = numeroPassing
+            entero = numeroPassing
+            with open("st.pickle", "wb") as archivoST:
+                pickle.dump(entero, archivoST)
             abrirVentanaAlcohol()
     except ValueError:
         # Manejar la excepción

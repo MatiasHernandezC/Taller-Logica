@@ -1,6 +1,6 @@
-import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def settearEdad():
     try:
@@ -9,7 +9,9 @@ def settearEdad():
             mensaje = Message(raiz, text = "Por favor, ingrese una edad válida entre 1 y 99")
             mensaje.pack()
         else:
-            f.edad = numeroPassing
+            entero = numeroPassing
+            with open("edad.pickle", "wb") as archivoEdad:
+                pickle.dump(entero, archivoEdad)
             abrirVentanaHS()
     except ValueError:
         # Manejar la excepción
@@ -25,7 +27,7 @@ def abrirVentanaHS():
     
     # Abrir la nueva ventana
     os.system("pythonw " + ruta_ventana)
-    
+
 ### INTERFACE ###
 
 raiz = Tk()

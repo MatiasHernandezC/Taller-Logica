@@ -1,6 +1,7 @@
 import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def obtenerResultado():
     if valorResultado <= 1:
@@ -47,7 +48,19 @@ frame.config(width="800", height="600")
 frame.config(bd=35)
 frame.config(relief="groove")
 
-valorResultado = f.calcularEstandarVida()
+# Se cargan los archicos obtenidos de las sucesivas ventanas
+with open("edad.pickle", "wb") as archivoEdad:
+    edad_cargada = pickle.load(archivoEdad)
+with open("hs.pickle", "wb") as archivoHS:
+    hs_cargada = pickle.load(archivoHS)
+with open("st.pickle", "wb") as archivoST:
+    st_cargada = pickle.load(archivoST)
+with open("lista.pickle", "wb") as archivoLista:
+    lista_cargada = pickle.load(archivoLista)
+with open("cadena.pickle", "wb") as archivoSF:
+    sf_cargada = pickle.load(archivoSF)
+
+valorResultado = f.calcularEstandarVida(edad_cargada, hs_cargada, st_cargada, lista_cargada, sf_cargada)
 mensajeFinal = obtenerResultado()
 mensajeComentario = obtenerComentario()
 

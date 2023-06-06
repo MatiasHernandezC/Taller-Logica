@@ -1,6 +1,6 @@
-import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def settearSF():
     opcion = cantidadSF.get()
@@ -10,8 +10,10 @@ def settearSF():
         varString = "normal"
     elif opcion == 2:
         varString = "mucho"
-    f.actividadFisica = varString
-    abrirVentanaResultados()    
+    cadena = varString
+    with open("cadena.pickle", "wb") as archivoSF:
+        pickle.dump(cadena, archivoSF)
+    abrirVentanaResultados()
     
 
 def abrirVentanaResultados():

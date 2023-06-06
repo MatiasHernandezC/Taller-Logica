@@ -1,6 +1,6 @@
-import funciones as f
 from tkinter import *
 import os
+import pickle
 
 def settearHS():
     try:
@@ -9,7 +9,9 @@ def settearHS():
             mensaje = Message(raiz, text = "Por favor, ingrese un valor válido entre 0 y 24")
             mensaje.pack()
         else:
-            f.horasSueno = numeroPassing
+            entero = numeroPassing
+            with open("hs.pickle", "wb") as archivoHS:
+                pickle.dump(entero, archivoHS)
             abrirVentanaST()
     except ValueError:
         # Manejar la excepción
