@@ -15,6 +15,13 @@
 
 from pyswip import Prolog
 
+### VARIABLES GLOBALES ###
+horasSueno = -1
+screenTime = -1
+edad = -1
+
+### FIN VARIABLES GLOBALES ###
+
 def estado_salud(num, prolog):
     if(bool(list(prolog.query("saludable("+str(num)+")")))):
         # 1 = saludable
