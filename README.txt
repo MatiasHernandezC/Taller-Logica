@@ -19,3 +19,9 @@ Links logica de prolog:
   - https://www.who.int/es/news/item/25-11-2020-every-move-counts-towards-better-health-says-who
   - https://www.unicef.org/uruguay/media/2276/file/La%20actividad%20f%C3%ADsica%20en%20ni%C3%B1os,%20ni%C3%B1as%20y%20adolescentes.pdf
 
+### INSTRUCCIONES PROGRAMA ###
+- Entrar a la carpeta src.
+- Abrir el archivo main.pyw, o ejecutar con el intérpete de Python.
+De esta manera, comienza el hilo de ejecución para responder el test de salud mental.
+OJO: Solo abrir el archivo main, de otra manera puede abrir instancias indeseadas o generar resultados no esperados.
+
